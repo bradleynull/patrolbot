@@ -72,14 +72,6 @@ class VideoCamera(object):
             if self._retrieve_frame:
                 success, self._current_frame = self._video.retrieve()
 
-    def frame_shape(self):
-        """Get the current image size for this camera as a tuple.
-
-        Returns:
-            Tuple of (image width, image height).
-        """
-        return self._img_width, self._img_height
-
     def get_current_frame(self):
         """Signal that we want to actually retrieve a frame from the camera.
 
