@@ -1,5 +1,5 @@
 """main.py
-Simple flask application for streaming motion jpg images to a web browser.
+App that will kick off the PatrolBot processing.
 """
 from camera.processor import VideoProcessor
 from camera.camera import VideoCamera
