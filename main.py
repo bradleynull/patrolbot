@@ -8,6 +8,7 @@ from patrolbot.sensors.camera.processor import VideoProcessor
 from patrolbot.sensors.camera.camera import VideoCamera
 from patrolbot.gui.pitft_main_window import PiTftMainWindow
 from patrolbot.flask_app.flask_app import FlaskApp
+from patrolbot.logger.logger import Logger
 
 
 if __name__ == '__main__':
@@ -17,11 +18,14 @@ if __name__ == '__main__':
                              "browser on port 5000.")
     args = parser.parse_args()
 
+    log = Logger().get_logger()
+
     # The main PyGame window that we will use to display and get touch
     # screen input from
     mw = PiTftMainWindow((320, 240))
 
     # Start the app so that anyone on the network can see it
+    log.info("Launching the video processor.")
     vid_proc = VideoProcessor(VideoCamera(device=0,
                                           width=mw.size[0],
                                           height=mw.size[1],
@@ -31,16 +35,18 @@ if __name__ == '__main__':
     # Get one frame so that the video fee will populate
     vid_proc.get_frame()
     if args.flask:
+        log.info("Setting up the Flask interface.")
         flask_app = FlaskApp(vid_proc)
     else:
         # Install our own signal handler so the user can gracefully exit.
         def signal_handler(sig, frame):
             global running
             running = False
-            print("\nPatrolBot: Caught SIGINT. Quitting.")
+            log.info("Caught SIGINT. Quitting.")
 
         signal.signal(signal.SIGINT, signal_handler)
 
+    log.info("Starting the processing loop.")
     running = True
     while running:
         vid_proc.get_frame(show_fps=True)
