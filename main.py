@@ -1,13 +1,13 @@
 """main.py
 App that will kick off the PatrolBot processing.
 """
-from camera.processor import VideoProcessor
-from camera.camera import VideoCamera
+from argparse import ArgumentParser
 import cv2
 import signal
-from gui.pitft_main_window import PiTftMainWindow
-from flask_app.flask_app import FlaskApp
-from argparse import ArgumentParser
+from patrolbot.sensors.camera.processor import VideoProcessor
+from patrolbot.sensors.camera.camera import VideoCamera
+from patrolbot.gui.pitft_main_window import PiTftMainWindow
+from patrolbot.flask_app.flask_app import FlaskApp
 
 
 if __name__ == '__main__':

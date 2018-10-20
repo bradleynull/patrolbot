@@ -9,7 +9,7 @@ class VideoCamera(object):
     """ Class for accessing the camera attached to the RPi.
     """
     def __init__(self, device=0, width=640, height=480, fps=30,
-                 multithread=True):
+                 multithread=False):
         """Constructor.
 
         Args:
