@@ -1,6 +1,8 @@
 # PatrolBot
 Creating a Raspberry Pi controlled two wheeled robot to patrol the house.
 
+![Patrolbot breadboard setup](docs/media/breadboard_setup.jpg)
+
 The current setup consists of:
 
 * [Raspberry Pi 3 Model B+](https://www.arrow.com/en/products/raspberrypi3b/raspberry-pi-foundation)
