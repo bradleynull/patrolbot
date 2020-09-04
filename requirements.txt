@@ -5,9 +5,10 @@ Flask==1.0.2
 idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
-MarkupSafe==1.0
+MarkupSafe==1.1.1
 numpy==1.15.0
 pygame==1.9.4
 requests==2.19.1
 urllib3==1.23
 Werkzeug==0.14.1
+wincertstore==0.2
